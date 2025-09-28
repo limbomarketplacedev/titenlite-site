@@ -2,85 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tite-n-Lite | One Battery Flashlight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tite-n-Lite | The Flashlight That Runs on Any Battery</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; color: #222; }
-    header { background: #111; color: #fff; text-align: center; padding: 2rem 1rem; }
-    header h1 { margin: 0; font-size: 2.2rem; }
-    .signup { background: #fff; padding: 2rem; max-width: 600px; margin: 2rem auto; border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
-    .signup input[type="email"] { padding: 0.8rem; width: 70%; border: 1px solid #ccc; border-radius: 6px; }
-    .signup button { padding: 0.9rem 1.5rem; background: #ff6600; border: none; color: #fff; border-radius: 6px;
-      margin-left: 0.5rem; cursor: pointer; font-weight: bold; }
-    .pricing { margin-top: 1rem; font-size: 1rem; }
-    .gofundme { max-width: 700px; margin: 2rem auto; text-align: center; }
-    section { max-width: 900px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    section h2 { text-align: center; font-size: 1.8rem; margin-bottom: 1rem; }
-    section p { font-size: 1rem; line-height: 1.5; margin-bottom: 1rem; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .signup-box {
+      background: #fff;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 16px;
+      margin-left: 8px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Tite-n-Lite</h1>
-    <p>The Flashlight That Runs on Just One Battery — Any Size.</p>
+    <p>The flashlight that works on <strong>any size battery</strong></p>
+    <p><strong>MSRP: $59</strong> &nbsp;|&nbsp; Early birds get <strong>45% OFF</strong></p>
   </header>
 
-  <!-- Email Signup -->
-  <div class="signup">
-    <h2>Sign Up for Early Access</h2>
+  <div class="signup-box">
+    <h2>Sign up for early bird access</h2>
     <form id="signup-form">
       <input type="email" id="email" placeholder="Enter your email" required />
-      <button type="submit">Sign Up</button>
+      <button type="submit">Notify Me</button>
     </form>
-    <div class="pricing">
-      <p><strong>MSRP: $39.99</strong></p>
-      <p><strong>Early Bird Pre-Orders Save 45%!</strong></p>
-    </div>
-    <p id="response"></p>
+    <p id="status"></p>
   </div>
 
   <!-- GoFundMe Embed -->
-  <div class="gofundme">
-    <h2>Support Our GoFundMe Campaign</h2>
+  <section>
     <div class="gfm-embed" 
          data-url="https://www.gofundme.com/f/titenlite-the-flashlight-that-runs-on-any-battery/widget/large?sharesheet=undefined&attribution_id=sl:c65cf01f-4c69-4a11-9137-e4aaa81a792c">
     </div>
     <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-  </div>
+  </section>
 
-  <!-- Product Description -->
+  <!-- About Section -->
   <section>
-    <h2>What is Tite-n-Lite?</h2>
+    <h2>About Tite-n-Lite</h2>
     <p>
-      Tite-n-Lite is the world’s first flashlight designed to work with <strong>just one battery of any size</strong>. 
-      Whether it’s an AA, AAA, C, or even a D-cell, Tite-n-Lite adapts instantly — giving you light when you need it most.
+      Tite-n-Lite is the world’s first flashlight designed to run on <strong>just one battery of any size</strong>.  
+      Whether it’s AAA, AA, C, D, or even a 9V or coin cell — if you’ve got one, Tite-n-Lite can light your way.  
     </p>
     <p>
-      No more worrying about the “right” batteries. Tite-n-Lite is built for 
-      <strong>emergencies, camping, everyday use, and disaster readiness</strong>. 
-      It’s compact, durable, and always ready to shine — even if all you have is a single leftover battery.
-    </p>
-    <p>
-      We are raising funds to build our <strong>final show-ready prototypes</strong> and 
-      create a professional demo video for Kickstarter. Your support brings us one step closer 
-      to putting Tite-n-Lite into hands everywhere.
+      We’re raising funds to finalize our <strong>show-ready prototypes</strong> and film a professional Kickstarter demo video.  
+      By supporting us now, you’ll help bring this innovation to market and secure your chance to get Tite-n-Lite at the lowest possible price.  
     </p>
   </section>
 
   <script>
-    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+    const form = document.getElementById('signup-form');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById("email").value;
-      const res = await fetch("/api/save-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const email = document.getElementById('email').value;
+      const res = await fetch('/api/save-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
       });
       const data = await res.json();
-      document.getElementById("response").textContent = data.message;
+      status.textContent = data.message;
+      form.reset();
     });
   </script>
 </body>
