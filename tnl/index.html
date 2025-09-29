@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tite-n-Lite | The Flashlight That Runs on Any Battery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .signup-box {
+      background: #fff;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 16px;
+      margin-left: 8px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tite-n-Lite</h1>
+    <p>The flashlight that works on <strong>any size battery</strong></p>
+    <p><strong>MSRP: $59</strong> &nbsp;|&nbsp; Early birds get <strong>45% OFF</strong></p>
+  </header>
+
+  <div class="signup-box">
+    <h2>Sign up for early bird access</h2>
+    <form id="signup-form">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+    <p id="status"></p>
+  </div>
+
+  <!-- GoFundMe Embed -->
+  <section>
+    <div class="gfm-embed" 
+         data-url="https://www.gofundme.com/f/titenlite-the-flashlight-that-runs-on-any-battery/widget/large?sharesheet=undefined&attribution_id=sl:c65cf01f-4c69-4a11-9137-e4aaa81a792c">
+    </div>
+    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+  </section>
+
+  <!-- About Section -->
+  <section>
+    <h2>About Tite-n-Lite</h2>
+    <p>
+      Tite-n-Lite is the world’s first flashlight designed to run on <strong>just one battery of any size</strong>.  
+      Whether it’s AAA, AA, C, D, or even a 9V or coin cell — if you’ve got one, Tite-n-Lite can light your way.  
+    </p>
+    <p>
+      We’re raising funds to finalize our <strong>show-ready prototypes</strong> and film a professional Kickstarter demo video.  
+      By supporting us now, you’ll help bring this innovation to market and secure your chance to get Tite-n-Lite at the lowest possible price.  
+    </p>
+  </section>
+
+  <script>
+    const form = document.getElementById('signup-form');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const res = await fetch('/api/save-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      status.textContent = data.message;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
